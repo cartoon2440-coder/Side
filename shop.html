@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All Products — NovaStock</title>
+<meta name="description" content="Browse the full NovaStock catalog of digital products and marketing services, organized by category with clear pricing.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <span class="utility-bar__msg">Welcome to NovaStock — new arrivals added weekly.</span>
+    <div class="utility-bar__links">
+      <a href="track-order.html">Track order</a>
+      <a href="contact.html">Support</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo__mark">Nova<span>Stock</span></span>
+      <span class="logo__tag">Digital Marketplace</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="category.html">Categories</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="track-order.html" class="icon-btn" aria-label="Track order">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      </a>
+      <a href="shop.html" class="btn btn--primary btn--sm">Browse Shop</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="category.html">Categories</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Shop</span></nav>
+    <h1>Shop all products</h1>
+    <p>Every listing in one place. Filter by category to narrow things down.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="shop-layout">
+      <aside>
+        <div class="filter-panel">
+          <h4>Category</h4>
+          <div class="filter-list" id="filter-list"></div>
+        </div>
+        <div class="filter-panel">
+          <h4>Need help choosing?</h4>
+          <p style="font-size:13.5px;color:var(--slate);line-height:1.6;margin-bottom:14px;">Message support and we'll point you to the right listing.</p>
+          <a href="contact.html" class="btn btn--ghost btn--block btn--sm">Contact support</a>
+        </div>
+      </aside>
+      <div>
+        <div class="toolbar">
+          <span class="toolbar__count"><span id="result-count">8</span> products</span>
+          <div class="toolbar__sort">
+            <label for="sort" class="visually-hidden">Sort by</label>
+            <select id="sort">
+              <option>Sort: Featured</option>
+              <option>Price: Low to high</option>
+              <option>Price: High to low</option>
+              <option>Highest rated</option>
+            </select>
+          </div>
+        </div>
+        <div class="product-grid" id="shop-grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderProductGrid('shop-grid', PRODUCTS);
+  renderFooter('site-footer');
+
+  var filterList = document.getElementById('filter-list');
+  filterList.innerHTML = CATEGORIES.map(function (c) {
+    return '<label class="filter-check"><input type="checkbox" data-filter-category value="' + c.slug + '"> ' + c.name + '</label>';
+  }).join('');
+
+  // re-run main.js filter binding since it loaded before these were rendered
+  document.querySelectorAll('[data-filter-category]').forEach(function (input) {
+    input.addEventListener('change', function () {
+      var checked = Array.from(document.querySelectorAll('[data-filter-category]')).filter(function (i) { return i.checked; }).map(function (i) { return i.value; });
+      var cards = document.querySelectorAll('[data-product-category]');
+      var visible = 0;
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-product-category');
+        var show = checked.length === 0 || checked.indexOf(cat) !== -1;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('result-count').textContent = visible;
+    });
+  });
+</script>
+</body>
+</html>

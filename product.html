@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Product — NovaStock</title>
+<meta name="description" content="Product details, pricing, and delivery information.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <span class="utility-bar__msg">Welcome to NovaStock — new arrivals added weekly.</span>
+    <div class="utility-bar__links">
+      <a href="track-order.html">Track order</a>
+      <a href="contact.html">Support</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo__mark">Nova<span>Stock</span></span>
+      <span class="logo__tag">Digital Marketplace</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="is-active">Shop</a>
+      <a href="category.html">Categories</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="track-order.html" class="icon-btn" aria-label="Track order">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      </a>
+      <a href="shop.html" class="btn btn--primary btn--sm">Browse Shop</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="category.html">Categories</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a><span class="breadcrumb__sep">/</span>
+    <a href="shop.html">Shop</a><span class="breadcrumb__sep">/</span>
+    <a href="#" id="crumb-cat">Category</a><span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current" id="crumb-name">Product</span>
+  </nav>
+</div>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="pd-layout">
+      <div>
+        <div class="pd-gallery__main" id="pd-main-media">
+          <span class="glyph" id="pd-main-icon"></span>
+        </div>
+        <div class="pd-gallery__thumbs">
+          <div class="pd-gallery__thumb is-active">01</div>
+          <div class="pd-gallery__thumb">02</div>
+          <div class="pd-gallery__thumb">03</div>
+        </div>
+      </div>
+
+      <div class="pd-info">
+        <span class="pd-info__cat" id="pd-cat"></span>
+        <h1 id="pd-name">Loading…</h1>
+        <div class="pd-info__meta">
+          <span class="stars" id="pd-stars"></span>
+          <span id="pd-reviews"></span>
+          <span>·</span>
+          <span id="pd-sku"></span>
+        </div>
+
+        <div class="pd-info__price">
+          <div class="amount" id="pd-price"></div>
+          <div class="note">Instant delivery after checkout · price varies by package selected below</div>
+        </div>
+
+        <p class="pd-info__desc" id="pd-desc"></p>
+
+        <div class="option-group">
+          <label class="title">Package</label>
+          <div class="option-pills">
+            <span class="option-pill is-selected">Starter</span>
+            <span class="option-pill">Standard</span>
+            <span class="option-pill">Pro</span>
+          </div>
+        </div>
+
+        <div class="qty-row">
+          <div>
+            <label class="title" style="font-size:13.5px;font-weight:600;display:block;margin-bottom:10px;">Quantity</label>
+            <div class="qty-stepper">
+              <button type="button" data-action="decrease" aria-label="Decrease quantity">−</button>
+              <span>1</span>
+              <button type="button" data-action="increase" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pd-actions">
+          <a href="#" class="btn btn--primary">Add to cart</a>
+          <a href="contact.html" class="btn btn--ghost">Ask a question</a>
+        </div>
+
+        <ul class="pd-includes" id="pd-includes"></ul>
+      </div>
+    </div>
+
+    <div class="pd-tabs">
+      <div class="pd-tabs__nav">
+        <button class="pd-tabs__btn is-active" data-tab="tab-details">Details</button>
+        <button class="pd-tabs__btn" data-tab="tab-delivery">Delivery & support</button>
+        <button class="pd-tabs__btn" data-tab="tab-reviews">Reviews</button>
+      </div>
+      <div class="pd-tabs__panel is-active" id="tab-details">
+        <p id="pd-long-desc"></p>
+        <ul id="pd-long-includes"></ul>
+      </div>
+      <div class="pd-tabs__panel" id="tab-delivery">
+        <p>Orders are processed automatically and delivered to the email address used at checkout. Most orders complete within a few minutes; packages involving custom setup may take up to 24 hours.</p>
+        <p>Support is available 24/7 through live chat and email if anything about your order needs attention. Replacement or correction requests are handled within 48 hours of delivery — see our <a href="refund-policy.html" style="color:var(--indigo);font-weight:600;">refund and replacement policy</a> for details.</p>
+      </div>
+      <div class="pd-tabs__panel" id="tab-reviews">
+        <div class="testimonial-grid" style="margin-top:4px;">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"Exactly as described, and the delivery was faster than the estimate on the page."</p>
+            <div class="testimonial-person"><span class="testimonial-avatar">S</span><div><strong>Sam T.</strong><span>Verified buyer</span></div></div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"Second time ordering this. Consistent quality both times, no issues with support."</p>
+            <div class="testimonial-person"><span class="testimonial-avatar">L</span><div><strong>Lena W.</strong><span>Verified buyer</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="related-heading">You might also like</h2>
+    <div class="product-grid" id="related-grid"></div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('slug') || PRODUCTS[0].slug;
+  var p = getProductBySlug(slug) || PRODUCTS[0];
+
+  document.getElementById('page-title').textContent = p.name + ' — NovaStock';
+  document.getElementById('pd-cat').textContent = p.categoryName;
+  document.getElementById('pd-name').textContent = p.name;
+  document.getElementById('pd-stars').textContent = starString(p.rating);
+  document.getElementById('pd-reviews').textContent = p.reviews + ' reviews';
+  document.getElementById('pd-sku').textContent = 'SKU: ' + p.slug.toUpperCase();
+  document.getElementById('pd-price').textContent = p.priceRange;
+  document.getElementById('pd-desc').textContent = p.short;
+  document.getElementById('pd-long-desc').textContent = p.desc;
+  document.getElementById('pd-main-icon').innerHTML = ICONS[p.icon];
+  document.getElementById('crumb-cat').textContent = p.categoryName;
+  document.getElementById('crumb-cat').setAttribute('href', 'category-detail.html?slug=' + p.category);
+  document.getElementById('crumb-name').textContent = p.name;
+
+  document.getElementById('pd-includes').innerHTML = p.includes.map(function (item) {
+    return '<li>' + ICONS.check + item + '</li>';
+  }).join('');
+  document.getElementById('pd-long-includes').innerHTML = p.includes.map(function (item) {
+    return '<li>' + item + '</li>';
+  }).join('');
+
+  var related = PRODUCTS.filter(function (item) { return item.category === p.category && item.slug !== p.slug; });
+  if (related.length < 4) {
+    PRODUCTS.forEach(function (item) {
+      if (related.length < 4 && item.slug !== p.slug && related.indexOf(item) === -1) related.push(item);
+    });
+  }
+  renderProductGrid('related-grid', related.slice(0, 4));
+  renderFooter('site-footer');
+</script>
+</body>
+</html>
